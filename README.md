@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Randomly Design
+
+[Design](https://www.figma.com/file/BuI9lWbKcA7gbkmkEeXeEo/Randomly?node-id=0%3A1).
+
 ## Available Scripts
 
 In the project directory, you can run:
