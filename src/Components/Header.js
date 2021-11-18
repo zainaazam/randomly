@@ -240,6 +240,7 @@ export const Login = styled.button`
   border: 3px solid #13647f;
   border-radius: 14px;
   align-items: center;
+  transition: all 0.3s ease-in-out;
   justify-content: center;
   :hover {
     background-color: ${Theme.colors.primary};
@@ -248,6 +249,7 @@ export const Login = styled.button`
 
 export const LoginText = styled(CustomText)`
   padding: 8% 0px;
+  transition: all 0.5s ease-in-out;
   color: ${(props) =>
     props.hovered ? Theme.colors.white : Theme.colors.primary};
 `;

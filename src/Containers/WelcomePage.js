@@ -46,6 +46,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 50px;
+  /* height: calc(100vh - 155.5px); */
 `;
 
 const ImageContainer = styled.div`
@@ -89,6 +91,7 @@ export const Register = styled.button`
 const RegisterText = styled(CustomText)`
   padding: 4% 0px;
   font-size: ${(props) => (props.hovered ? "30px" : "25px")};
+  transition: all 0.3s ease-in-out;
 `;
 
 const Texts = styled.div``;

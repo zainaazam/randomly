@@ -10,6 +10,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Header from "./Components/Header";
 import WelcomePage from "./Containers/WelcomePage";
 import PageTitle from "./Components/PageTitle";
+import Footer from "./Components/Footer";
 
 // export interface RoutesProps {
 //   rememberMe: boolean;
@@ -39,7 +40,7 @@ const Routes = ({ rememberMe, setRememberMe }) => {
             <Redirect to="/" />
           </Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Router>
   );
