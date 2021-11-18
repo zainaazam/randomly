@@ -178,8 +178,8 @@ export const HeaderNavOption = styled(Link)`
 // `;
 
 export const HeaderLogo = styled.img`
-  width: 80%;
-  margin: 0px 50px;
+  width: 90%;
+  margin: 0px 60px;
   @media (max-width: 768px) {
     margin: 0%;
   }
@@ -232,10 +232,11 @@ export const HeaderLogoWrapper = styled.div`
 //   }
 // `;
 
-export const Login = styled.div`
+export const Login = styled.button`
+  background-color: transparent;
   cursor: pointer;
   display: flex;
-  width: 120px;
+  width: 125px;
   border: 3px solid #13647f;
   border-radius: 14px;
   align-items: center;
@@ -248,5 +249,5 @@ export const Login = styled.div`
 export const LoginText = styled(CustomText)`
   padding: 8% 0px;
   color: ${(props) =>
-    props.hovered ? Theme.colors.white : Theme.colors.primary}; ;
+    props.hovered ? Theme.colors.white : Theme.colors.primary};
 `;

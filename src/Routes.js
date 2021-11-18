@@ -8,6 +8,8 @@ import {
 
 import ScrollToTop from "./Components/ScrollToTop";
 import Header from "./Components/Header";
+import WelcomePage from "./Containers/WelcomePage";
+import PageTitle from "./Components/PageTitle";
 
 // export interface RoutesProps {
 //   rememberMe: boolean;
@@ -20,6 +22,10 @@ const Routes = ({ rememberMe, setRememberMe }) => {
       <div>
         <Header />
         <Switch>
+          <Route path="/" exact>
+            <WelcomePage />
+            <PageTitle title="welcome" />
+          </Route>
           {/* <Route path="/" exact>
             <MainPage />
             <PageTitle title="الرئيسية" />
