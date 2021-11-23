@@ -60,31 +60,25 @@ export const CustomText = styled.p`
 //   color: ${(props) => (props.color ? props.color : props.theme.colors.primary)};
 //   padding: 4px 0 10px;
 // `;
-// export const CustomInput = styled.input`
-//   direction: rtl;
-//   border: ${(props) =>
-//     props.border ? `1px solid ${props.theme.colors.lightSilver}` : "0"};
-//   border-bottom: ${(props) =>
-//     !props.border && `1px solid ${props.theme.colors.lightSilver}`};
-//   ${(props) => (props.error ? "border-color:red" : "")};
-//   padding: 10px 15px;
-//   border-radius: ${(props) => (props.border ? "5px" : "0")};
-//   width: ${(props) => (props.width ? props.width : "30%")};
-//   margin: 5px 0;
-//   font-family: ${(props) => (props.font ? props.font : Fonts.regular)};
-//   ${(props) => (props.height ? `height:${props.height}` : "")};
-//   &:focus,
-//   &:visited,
-//   &:link,
-//   &:active {
-//     border: 1px solid ${(props) => props.theme.colors.gradientBlue};
-//   }
-
-//   &::placeholder {
-//     color: ${(props) => props.theme.colors.gray};
-//   }
-//   outline: none;
-// `;
+export const CustomInput = styled.input`
+  border: 0px;
+  border-bottom: 1px solid ${Theme.colors.lightBlue};
+  ${(props) => (props.error ? "border-color:red" : "")};
+  padding: 10px 15px;
+  width: ${(props) => (props.width ? props.width : "96%")};
+  font-family: ${(props) => (props.font ? props.font : Fonts.third)};
+  ${(props) => (props.height ? `height:${props.height}` : "")};
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    background-color: ${Theme.colors.transparent};
+    border: 0px;
+    border-bottom: 1px solid ${Theme.colors.primary};
+  }
+  outline: none;
+  background-color: ${Theme.colors.transparent};
+`;
 
 // export const CustomButton = styled.button`
 //   cursor: pointer;

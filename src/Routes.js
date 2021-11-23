@@ -21,7 +21,7 @@ const Routes = ({ rememberMe, setRememberMe }) => {
     <Router basename="/">
       <ScrollToTop />
       <div>
-        <Header />
+        <Header rememberMe={rememberMe} setRememberMe={setRememberMe} />
         <Switch>
           <Route path="/" exact>
             <WelcomePage />
