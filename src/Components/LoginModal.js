@@ -190,9 +190,9 @@ export const ModalButton = styled.button`
   cursor: pointer;
   font-family: ${Fonts.third};
   width: 82%;
-  padding: 10px;
+  padding: ${(props) => (props.padding ? props.padding : "10px")};
   border-radius: 18px;
-  margin-top: 23px;
+  margin-top: ${(props) => (props.marginTop ? props.marginTop : "23px")};
   font-size: 18px;
   background-image: linear-gradient(to right, #1a6f8b, rgba(32, 210, 233, 0.6));
   color: ${Theme.colors.white};
