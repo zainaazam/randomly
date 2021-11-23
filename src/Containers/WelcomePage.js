@@ -5,6 +5,7 @@ import { CustomText } from "../Components/Common";
 import Fonts from "../Theme/Fonts";
 import Theme from "./Theme/colors";
 import Modal from "react-modal";
+import SignUpModal from "../Components/SignUpModal";
 
 Modal.setAppElement("#root");
 
@@ -48,29 +49,22 @@ const WelcomePage = () => {
         onRequestClose={handleLoginModal}
         style={{
           overlay: {
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
             backgroundColor: Theme.colors.gray,
           },
           content: {
-            position: "absolute",
-            top: "80px",
-            left: "250px",
-            right: "250px",
-            bottom: "80px",
-            border: "1px solid #F8F3ED",
+            top: "60px",
+            left: "480px",
+            right: "480px",
+            bottom: "60px",
+            border: "0px",
             background: Theme.colors.background,
-            overflow: "auto",
-            WebkitOverflowScrolling: "touch",
             borderRadius: "14px",
-            outline: "none",
-            padding: "20px",
+            padding: "0px",
           },
         }}
-      ></Modal>
+      >
+        <SignUpModal onCloseIcon={handleLoginModal} />
+      </Modal>
     </Container>
   );
 };
