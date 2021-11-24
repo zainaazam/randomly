@@ -9,11 +9,13 @@ import styled from "styled-components";
 import { BsXLg } from "react-icons/bs";
 import { useCookies } from "react-cookie";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
   const [gHovered, setGHovered] = useState(false);
   const [fHovered, setFHovered] = useState(false);
   const [checked, setChecked] = useState(false);
+  const history = useHistory();
   const [, setCookie] = useCookies(["rememberMeCookie"]);
   const handleChecked = () => {
     setChecked(!checked);
@@ -29,6 +31,8 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
         expires: moment(Date()).add(1, "d").toDate(),
       });
     }
+    history.push("/main");
+    onCloseIcon();
   };
   return (
     <>
