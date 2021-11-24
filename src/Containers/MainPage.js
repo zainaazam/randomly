@@ -6,8 +6,15 @@ import ClapperBoard from "../Assets/Images/clapperboard.png";
 import MusicPlayer from "../Assets/Images/music-player.png";
 import TvShows from "../Assets/Images/tv.png";
 import Other from "../Assets/Images/other.png";
+import { useHistory } from "react-router-dom";
 
 const MainPage = () => {
+  const history = useHistory();
+
+  const onClickOption = () => {
+    history.push("/choosing");
+  };
+
   const Options = [
     { Image: ClapperBoard, title: "Movies" },
     { Image: TvShows, title: "TV Shows" },
@@ -17,7 +24,7 @@ const MainPage = () => {
   return (
     <Container>
       {Options.map((item) => (
-        <Option>
+        <Option onClick={onClickOption}>
           <Image src={item.Image} />
           <Title>{item.title}</Title>
         </Option>

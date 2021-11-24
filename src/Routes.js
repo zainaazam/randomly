@@ -12,6 +12,7 @@ import WelcomePage from "./Containers/WelcomePage";
 import PageTitle from "./Components/PageTitle";
 import Footer from "./Components/Footer";
 import MainPage from "./Containers/MainPage";
+import RandomlyChoosing from "./Containers/RandomlyChoosing";
 
 // export interface RoutesProps {
 //   rememberMe: boolean;
@@ -31,6 +32,10 @@ const Routes = ({ rememberMe, setRememberMe }) => {
           <Route path="/main" exact>
             <MainPage />
             <PageTitle title="Main Page" />
+          </Route>
+          <Route path="/choosing" exact>
+            <RandomlyChoosing />
+            <PageTitle title="Randomly Choosing" />
           </Route>
           {/* <Route path="/" exact>
             <MainPage />
