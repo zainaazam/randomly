@@ -4,6 +4,7 @@ import { CustomInput, CustomText } from "./Common";
 import Fonts from "../Theme/Fonts";
 import Theme from "../Containers/Theme/colors";
 import { BsXLg } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
 import {
   ModalButton,
   OrContainer,
@@ -18,6 +19,12 @@ import {
 const SignUpModal = ({ onCloseIcon }) => {
   const [gHovered, setGHovered] = useState(false);
   const [fHovered, setFHovered] = useState(false);
+  const history = useHistory();
+  const handleSignUp = () => {
+    history.push("/main");
+    onCloseIcon();
+  };
+
   return (
     <SignUpForm>
       <CloseIcon size={30} color={Theme.colors.black} onClick={onCloseIcon} />
@@ -49,7 +56,7 @@ const SignUpModal = ({ onCloseIcon }) => {
           <Input type={"password"} width={"90%"} />
         </InputWrapper>
       </Row>
-      <ModalButton marginTop={"45px"} padding={"13px"}>
+      <ModalButton marginTop={"45px"} padding={"13px"} onClick={handleSignUp}>
         Create My Account
       </ModalButton>
       <OrContainer>

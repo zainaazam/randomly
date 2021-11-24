@@ -11,6 +11,7 @@ import Header from "./Components/Header";
 import WelcomePage from "./Containers/WelcomePage";
 import PageTitle from "./Components/PageTitle";
 import Footer from "./Components/Footer";
+import MainPage from "./Containers/MainPage";
 
 // export interface RoutesProps {
 //   rememberMe: boolean;
@@ -25,7 +26,11 @@ const Routes = ({ rememberMe, setRememberMe }) => {
         <Switch>
           <Route path="/" exact>
             <WelcomePage />
-            <PageTitle title="welcome" />
+            <PageTitle title="Welcome Page" />
+          </Route>
+          <Route path="/main" exact>
+            <MainPage />
+            <PageTitle title="Main Page" />
           </Route>
           {/* <Route path="/" exact>
             <MainPage />

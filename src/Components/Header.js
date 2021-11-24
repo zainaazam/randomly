@@ -7,8 +7,8 @@ import Theme from "../Containers/Theme/colors";
 import Modal from "react-modal";
 import { Row } from "react-bootstrap";
 import LoginModal from "./LoginModal";
+// import avatar from "../Assets/Images/avatar.png";
 
-// import { useHistory } from "react-router-dom";
 // import { useCookies } from "react-cookie";
 // import Menu from "./Menu";
 
@@ -31,6 +31,9 @@ const Header = ({ rememberMe, setRememberMe }) => {
           <HeaderLogo src={Logo} />
         </HeaderNavOption>
       </HeaderLogoWrapper>
+      {/* {loggedIn ? ( //TODO when redux
+        <Avatar src={avatar} />
+      ) : ( */}
       <Login
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -40,6 +43,7 @@ const Header = ({ rememberMe, setRememberMe }) => {
           Login
         </LoginText>
       </Login>
+      {/* )} */}
       <Modal
         isOpen={loginModal}
         onRequestClose={handleLoginModal}
@@ -154,3 +158,5 @@ export const LoginText = styled(CustomText)`
   color: ${(props) =>
     props.hovered ? Theme.colors.white : Theme.colors.primary};
 `;
+
+// const Avatar = styled.img``;
