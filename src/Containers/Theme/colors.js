@@ -10,6 +10,8 @@ const Theme = {
     white: "#fff",
     beige: "#DDCFC4",
     orange: "#F37A36",
+    yellow: "#F3B136",
+    red: "#FD0707",
     gray: "rgba(128,128,128, 0.3)",
     transparent: "transparent",
   },
