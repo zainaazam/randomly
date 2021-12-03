@@ -21,6 +21,7 @@ const RandomlyChoosing = () => {
   const [editingText, setEditingText] = useState("");
   const [chosenModal, setChosenModal] = useState(false);
   const [chosenId, setChosenId] = useState(0);
+
   const handleChosenModal = () => {
     RandomChoice();
     setChosenModal(!chosenModal);
