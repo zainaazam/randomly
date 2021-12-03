@@ -78,6 +78,11 @@ const Container = styled.div`
   justify-content: space-between;
   padding-bottom: 50px;
   /* height: calc(100vh - 155.5px); */
+  /* width: 80%; */
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+    margin: auto;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -89,6 +94,12 @@ const ImageContainer = styled.div`
 
 const ZombieingImage = styled.img`
   width: 85%;
+  @media (max-width: 1150px) {
+    width: 80%;
+  }
+  @media (max-width: 850px) {
+    width: 70%;
+  }
 `;
 
 const Welcoming = styled.div`
@@ -97,14 +108,49 @@ const Welcoming = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+  @media (max-width: 600px) {
+    margin-left: 0px;
+    align-items: center;
+    margin-top: 20px;
+  }
 `;
 
 const WelcomingText = styled(CustomText)`
   width: 50%;
+
+  @media (max-width: 1300px) {
+    font-size: 30px;
+  }
+  @media (max-width: 1025px) {
+    font-size: 25px;
+    width: 80%;
+  }
+  @media (max-width: 760px) {
+    font-size: 20px;
+  }
+  @media (max-width: 600px) {
+    text-align: center;
+    margin: auto;
+  }
 `;
 
 const RightPlaceText = styled(CustomText)`
   width: 50%;
+
+  @media (max-width: 1300px) {
+    font-size: 30px;
+  }
+  @media (max-width: 1025px) {
+    font-size: 25px;
+    width: 80%;
+  }
+  @media (max-width: 760px) {
+    font-size: 20px;
+    width: 100%;
+  }
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 `;
 
 export const Register = styled.button`
@@ -116,12 +162,28 @@ export const Register = styled.button`
   border-radius: 14px;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1150px) {
+    width: 300px;
+  }
+  @media (max-width: 850px) {
+    width: 200px;
+  }
+  @media (max-width: 600px) {
+    margin-top: 20px;
+  }
 `;
 
 const RegisterText = styled(CustomText)`
   padding: 4% 0px;
   font-size: ${(props) => (props.hovered ? "30px" : "25px")};
   transition: all 0.3s ease-in-out;
+  @media (max-width: 1150px) {
+    font-size: 20px;
+  }
+  @media (max-width: 850px) {
+    font-size: 17px;
+  }
 `;
 
 const Texts = styled.div``;
