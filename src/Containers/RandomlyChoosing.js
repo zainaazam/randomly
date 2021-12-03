@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { CustomText } from "../Components/Common";
 import Theme from "./Theme/colors";
@@ -8,6 +8,7 @@ import { MdEdit } from "react-icons/md";
 import FlipDiceIcon from "../Assets/Images/favicon.png";
 import Modal from "react-modal";
 import ChosenModal from "../Components/ChosenModal";
+import { MdCancel } from "react-icons/md";
 
 const initialChoices = [];
 
@@ -20,6 +21,7 @@ const RandomlyChoosing = () => {
   const [editingText, setEditingText] = useState("");
   const [chosenModal, setChosenModal] = useState(false);
   const [chosenId, setChosenId] = useState(0);
+
   const handleChosenModal = () => {
     RandomChoice();
     setChosenModal(!chosenModal);
@@ -29,6 +31,20 @@ const RandomlyChoosing = () => {
     const ChosenId = Math.floor(Math.random() * choices.length - 1) + 1;
     setChosenId(ChosenId);
   };
+
+  useEffect(() => {
+    const temp = localStorage.getItem("choices");
+    if (temp) {
+      const loadedChoices = JSON.parse(temp);
+
+      if (loadedChoices) setChoices(loadedChoices);
+    }
+  }, []);
+
+  useEffect(() => {
+    const temp = JSON.stringify(choices);
+    localStorage.setItem("choices", temp);
+  }, [choices]);
 
   const handleAdding = (text) => {
     if (text !== "") {
@@ -56,13 +72,15 @@ const RandomlyChoosing = () => {
   };
 
   const handleEditing = (id, text) => {
-    const updatedChoices = [...choices].map((choice) => {
-      if (choice.id === id) {
-        choice.text = text;
-      }
-      return choice;
-    });
-    setChoices(updatedChoices);
+    if (text !== "") {
+      const updatedChoices = [...choices].map((choice) => {
+        if (choice.id === id) {
+          choice.text = text;
+        }
+        return choice;
+      });
+      setChoices(updatedChoices);
+    }
   };
 
   return (
@@ -110,6 +128,11 @@ const RandomlyChoosing = () => {
                   >
                     Done
                   </Done>
+                  <CancelIcon
+                    size={30}
+                    color={Theme.colors.red}
+                    onClick={() => setEdit(0)}
+                  />
                 </>
               ) : (
                 <>
@@ -292,7 +315,7 @@ const EditingInput = styled.input`
 `;
 
 const Done = styled.div`
-  width: 60px;
+  width: 50px;
   height: 40px;
   border-radius: 14px;
   display: flex;
@@ -302,7 +325,12 @@ const Done = styled.div`
   font-weight: 700;
   background-color: #4cbb17;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 3px;
+  margin-left: 5px;
+`;
+
+const CancelIcon = styled(MdCancel)`
+  cursor: pointer;
 `;
 
 const ChooseButton = styled.div`
