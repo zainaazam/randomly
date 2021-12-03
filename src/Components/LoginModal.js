@@ -15,6 +15,7 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
   const [gHovered, setGHovered] = useState(false);
   const [fHovered, setFHovered] = useState(false);
   const [checked, setChecked] = useState(false);
+  let loggedIn = false;
   const history = useHistory();
   const [, setCookie] = useCookies(["rememberMeCookie"]);
   const handleChecked = () => {
@@ -31,7 +32,11 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
         expires: moment(Date()).add(1, "d").toDate(),
       });
     }
+    loggedIn = true;
+    const isLoggedIn = JSON.stringify(loggedIn);
+    localStorage.setItem("isLoggedIn", isLoggedIn);
     history.push("/main");
+    history.go(0);
     onCloseIcon();
   };
   return (

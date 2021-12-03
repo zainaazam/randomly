@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../Assets/Images/logo.png";
@@ -7,7 +7,9 @@ import Theme from "../Containers/Theme/colors";
 import Modal from "react-modal";
 import { Row } from "react-bootstrap";
 import LoginModal from "./LoginModal";
-// import avatar from "../Assets/Images/avatar.png";
+import avatar from "../Assets/Images/avatar.png";
+import { useHistory } from "react-router-dom";
+import Fonts from "../Theme/Fonts";
 
 // import { useCookies } from "react-cookie";
 // import Menu from "./Menu";
@@ -15,11 +17,36 @@ import LoginModal from "./LoginModal";
 const Header = ({ rememberMe, setRememberMe }) => {
   const [hovered, setHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const history = useHistory();
   const handleLoginModal = () => {
     setLoginModal(!loginModal);
   };
 
-  // const history = useHistory();
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn) {
+      const loggedIn = JSON.parse(isLoggedIn);
+
+      if (loggedIn) setLoggedIn(loggedIn);
+    }
+  }, []);
+
+  useEffect(() => {
+    const temp = JSON.stringify(loggedIn);
+    localStorage.setItem("isLoggedIn", temp);
+  }, [loggedIn]);
+
+  const handleLogOut = () => {
+    setLoggedIn(false);
+    // let loggedOut = false;
+    // const isLoggedOut = JSON.stringify(loggedOut);
+    // localStorage.setItem("isLoggedIn", isLoggedOut);
+    history.push("/welcome");
+    // console.log(isLoggedOut);
+  };
+
   // const dispatch = useDispatch();
   // const {loggedIn} = useSelector<RootState>(
   //   state => state.Configs,
@@ -31,19 +58,22 @@ const Header = ({ rememberMe, setRememberMe }) => {
           <HeaderLogo src={Logo} />
         </HeaderNavOption>
       </HeaderLogoWrapper>
-      {/* {loggedIn ? ( //TODO when redux
-        <Avatar src={avatar} />
-      ) : ( */}
-      <Login
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onClick={() => handleLoginModal()}
-      >
-        <LoginText size={25} hovered={hovered}>
-          Login
-        </LoginText>
-      </Login>
-      {/* )} */}
+      {loggedIn ? ( //TODO when redux
+        <LogOut>
+          <Avatar src={avatar} />
+          <LogOutText onClick={handleLogOut}>Log Out</LogOutText>
+        </LogOut>
+      ) : (
+        <Login
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onClick={() => handleLoginModal()}
+        >
+          <LoginText size={25} hovered={hovered}>
+            Login
+          </LoginText>
+        </Login>
+      )}
       <Modal
         isOpen={loginModal}
         onRequestClose={handleLoginModal}
@@ -149,7 +179,13 @@ export const Login = styled.button`
   justify-content: center;
   :hover {
     background-color: ${Theme.colors.primary};
+    /* color: white; */
   }
+  /* padding: 0.7% 0px;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: ${Fonts.regular};
+  color: ${Theme.colors.primary}; */
 `;
 
 export const LoginText = styled(CustomText)`
@@ -159,4 +195,20 @@ export const LoginText = styled(CustomText)`
     props.hovered ? Theme.colors.white : Theme.colors.primary};
 `;
 
-// const Avatar = styled.img``;
+const Avatar = styled.img`
+  width: 35px;
+  height: 40px;
+  margin-bottom: 7px;
+`;
+
+const LogOut = styled.div`
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const LogOutText = styled(CustomText)`
+  font-size: 30px;
+  cursor: pointer;
+`;
