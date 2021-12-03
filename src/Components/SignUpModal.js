@@ -20,8 +20,13 @@ const SignUpModal = ({ onCloseIcon }) => {
   const [gHovered, setGHovered] = useState(false);
   const [fHovered, setFHovered] = useState(false);
   const history = useHistory();
+
   const handleSignUp = () => {
+    let loggedIn = true;
+    const isLoggedIn = JSON.stringify(loggedIn);
+    localStorage.setItem("isLoggedIn", isLoggedIn);
     history.push("/main");
+    history.go(0);
     onCloseIcon();
   };
 
