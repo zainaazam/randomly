@@ -117,10 +117,10 @@ export const HeaderWrapper = styled.div`
   z-index: 999;
   /* position: relative; */
   /* width: 100%; */
-  /* @media (max-width: 980px) {
-    justify-content: space-around;
+  @media (max-width: 400px) {
+    padding: 0px 10px 0px 0px;
   }
-  @media (max-width: 700px) {
+  /* @media (max-width: 700px) {
     justify-content: space-evenly;
   }
   @media (max-width: 580px) {
@@ -145,12 +145,27 @@ export const HeaderLogo = styled.img`
   width: 90%;
   margin: 0px 60px;
   @media (max-width: 768px) {
-    margin: 0%;
+    width: 100%;
+  }
+  @media (max-width: 400px) {
+    margin-left: 10px;
   }
 `;
 
 export const HeaderLogoWrapper = styled.div`
   width: 22%;
+
+  @media (max-width: 768px) {
+    width: 30%;
+  }
+
+  @media (max-width: 500px) {
+    width: 40%;
+  }
+
+  @media (max-width: 370px) {
+    width: 45%;
+  }
 
   /* @media (max-width: 1100px) {
     width: 15%;
@@ -181,6 +196,22 @@ export const Login = styled.button`
     background-color: ${Theme.colors.primary};
     /* color: white; */
   }
+  @media (max-width: 1150px) {
+    width: 115px;
+    height: 48px;
+  }
+  @media (max-width: 1000px) {
+    width: 100px;
+    height: 40px;
+  }
+  @media (max-width: 600px) {
+    width: 90px;
+    height: 35px;
+  }
+  @media (max-width: 400px) {
+    width: 80px;
+    height: 30px;
+  }
   /* padding: 0.7% 0px;
   font-size: 25px;
   font-weight: 600;
@@ -193,6 +224,13 @@ export const LoginText = styled(CustomText)`
   transition: all 0.5s ease-in-out;
   color: ${(props) =>
     props.hovered ? Theme.colors.white : Theme.colors.primary};
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 18px;
+  }
 `;
 
 const Avatar = styled.img`
