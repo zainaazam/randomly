@@ -48,7 +48,9 @@ const Footer = () => {
               window.open("https://www.linkedin.com/in/zaina-azam-66332a1a2/")
             }
           />
-          {hovered && <Sign>zaina.a1762@gmail.com</Sign>}
+          {window.innerWidth > 700 && hovered && (
+            <Sign>zaina.a1762@gmail.com</Sign>
+          )}
         </SocialMediaLinks>
         <WebsiteName size={40} color={Theme.colors.white}>
           Randomly by Zaina Azam
@@ -70,39 +72,120 @@ const FooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    height: 300px;
+  }
+  @media (max-width: 450px) {
+    height: 250px;
+  }
 `;
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 80px 100px 0px 100px;
+  @media (max-width: 900px) {
+    padding: 80px 40px 0px 40px;
+  }
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding: 40px 40px 0px 40px;
+  }
+  @media (max-width: 380px) {
+    padding: 40px 20px 0px 20px;
+  }
 `;
 
-const FooterLinks = styled.div``;
+const FooterLinks = styled.div`
+  @media (max-width: 700px) {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  @media (max-width: 380px) {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+`;
 
 const FooterLinkText = styled(CustomText)`
   cursor: pointer;
   :hover {
     text-decoration: underline;
   }
+  @media (max-width: 1050px) {
+    font-size: 30px;
+  }
+  @media (max-width: 772px) {
+    font-size: 25px;
+  }
+  @media (max-width: 450px) {
+    font-size: 18px;
+  }
 `;
 
-const SocialMediaLinks = styled.div``;
+const SocialMediaLinks = styled.div`
+  @media (max-width: 700px) {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  @media (max-width: 380px) {
+    margin-top: 30px;
+  }
+`;
 
 const SocialMediaLink = styled.img`
   width: 60px;
   height: 60px;
   cursor: pointer;
   margin: 0px 30px;
+  @media (max-width: 1050px) {
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-width: 900px) {
+    margin: 0px 20px;
+    width: 40px;
+    height: 40px;
+  }
+  @media (max-width: 450px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const WebsiteName = styled(CustomText)`
   width: 13%;
+  @media (max-width: 1050px) {
+    font-size: 30px;
+  }
+  @media (max-width: 772px) {
+    font-size: 25px;
+  }
+  @media (max-width: 700px) {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+  }
+  @media (max-width: 450px) {
+    font-size: 18px;
+  }
 `;
 
 const CopyRightText = styled(CustomText)`
   align-self: center;
   margin-bottom: 5px;
+  @media (max-width: 1050px) {
+    font-size: 13px;
+  }
+  @media (max-width: 700px) {
+    font-size: 11px;
+  }
+  @media (max-width: 450px) {
+    font-size: 10px;
+  }
 `;
 
 const MailTo = styled.a``;
@@ -115,4 +198,9 @@ const Sign = styled.div`
   text-align: center;
   margin-top: 10px;
   margin-left: 25px;
+  @media (max-width: 900px) {
+    font-size: 13px;
+    width: 150px;
+    height: 15px;
+  }
 `;
