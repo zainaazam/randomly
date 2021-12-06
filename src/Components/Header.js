@@ -117,7 +117,7 @@ export const HeaderWrapper = styled.div`
   z-index: 999;
   /* position: relative; */
   /* width: 100%; */
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     padding: 0px 10px 0px 0px;
   }
   /* @media (max-width: 700px) {
@@ -147,7 +147,7 @@ export const HeaderLogo = styled.img`
   @media (max-width: 768px) {
     width: 100%;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     margin-left: 10px;
   }
 `;
@@ -237,6 +237,18 @@ const Avatar = styled.img`
   width: 35px;
   height: 40px;
   margin-bottom: 7px;
+  @media (max-width: 1100px) {
+    width: 30px;
+    height: 35px;
+  }
+  @media (max-width: 900px) {
+    width: 25px;
+    height: 30px;
+  }
+  @media (max-width: 400px) {
+    width: 20px;
+    height: 25px;
+  }
 `;
 
 const LogOut = styled.div`
@@ -244,9 +256,27 @@ const LogOut = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 1100px) {
+    width: 120px;
+  }
+  @media (max-width: 900px) {
+    width: 90px;
+  }
+  @media (max-width: 400px) {
+    width: 73px;
+  }
 `;
 
 const LogOutText = styled(CustomText)`
   font-size: 30px;
   cursor: pointer;
+  @media (max-width: 1100px) {
+    font-size: 25px;
+  }
+  @media (max-width: 900px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 16px;
+  }
 `;
