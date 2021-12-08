@@ -196,12 +196,24 @@ export default RandomlyChoosing;
 const Container = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `;
 
 const ChoicesWrapper = styled.div`
   width: 50%;
   padding: 50px 130px;
+  @media (max-width: 1330px) {
+    padding: 50px 100px;
+  }
+  @media (max-width: 1270px) {
+    padding: 50px 80px;
+  }
+  @media (max-width: 850px) {
+    width: 80%;
+    padding: 50px 0px 50px 9%;
+  }
 `;
 
 const ChooseButtonWrapper = styled.div`
@@ -209,6 +221,14 @@ const ChooseButtonWrapper = styled.div`
   padding: 150px 0px;
   display: flex;
   justify-content: center;
+  @media (max-width: 850px) {
+    width: 80%;
+    padding: 50px 0px 80px 9%;
+  }
+  @media (max-width: 400px) {
+    width: 80%;
+    padding: 50px 0px 80px 10.5%;
+  }
 `;
 
 const AddingInput = styled.div`
@@ -217,7 +237,7 @@ const AddingInput = styled.div`
 `;
 
 const InputWrapper = styled.div`
-  width: 84%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -236,6 +256,21 @@ const Input = styled.input`
     border: 3px solid ${Theme.colors.primary};
   }
   outline: none;
+  @media (max-width: 1230px) {
+    width: 80%;
+  }
+  @media (max-width: 1000px) {
+    height: 55px;
+    font-size: 30px;
+  }
+  @media (max-width: 950px) {
+    height: 45px;
+    font-size: 25px;
+  }
+  @media (max-width: 400px) {
+    height: 40px;
+    width: 70%;
+  }
 `;
 
 const Add = styled.div`
@@ -251,15 +286,26 @@ const Add = styled.div`
     background-color: ${Theme.colors.yellow};
   }
   transition: all 0.5s;
+  @media (max-width: 950px) {
+    width: 45px;
+    height: 45px;
+  }
 `;
 
 const Label = styled(CustomText)`
   align-self: flex-start;
   font-size: 35px;
   margin-left: 12px;
+  @media (max-width: 950px) {
+    font-size: 25px;
+  }
 `;
 
-const AddIcon = styled(MdAdd)``;
+const AddIcon = styled(MdAdd)`
+  @media (max-width: 950px) {
+    width: 40px;
+  }
+`;
 
 const List = styled.div`
   margin-top: 40px;
@@ -278,11 +324,21 @@ const ListItem = styled.div`
   /* :hover {
     background-color: ${Theme.colors.blue};
   } */
+  @media (max-width: 950px) {
+    height: 45px;
+    width: 380px;
+  }
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 const ItemTitle = styled(CustomText)`
   font-size: 30px;
   margin-left: 10px;
+  @media (max-width: 950px) {
+    font-size: 25px;
+  }
 `;
 
 const Icons = styled.div`
@@ -291,11 +347,17 @@ const Icons = styled.div`
 
 const RemoveIcon = styled(IoMdRemoveCircle)`
   cursor: pointer;
+  @media (max-width: 950px) {
+    width: 20px;
+  }
 `;
 
 const EditIcon = styled(MdEdit)`
   margin-right: 8px;
   cursor: pointer;
+  @media (max-width: 950px) {
+    width: 20px;
+  }
 `;
 
 const EditingInput = styled.input`
@@ -347,12 +409,42 @@ const ChooseButton = styled.div`
     background-color: ${Theme.colors.yellow};
   }
   transition: all 0.4s;
+  @media (max-width: 1200px) {
+    width: 280px;
+    height: 350px;
+  }
+  @media (max-width: 1000px) {
+    width: 230px;
+    height: 300px;
+  }
+  @media (max-width: 850px) {
+    height: 120px;
+    flex-direction: row;
+  }
 `;
 
 const FlipDice = styled.img`
   width: 210px;
+  @media (max-width: 1200px) {
+    width: 180px;
+  }
+  @media (max-width: 1000px) {
+    width: 130px;
+  }
+  @media (max-width: 850px) {
+    width: 70px;
+  }
 `;
 
 const ChooseText = styled(CustomText)`
   font-size: 45px;
+  @media (max-width: 1200px) {
+    font-size: 40px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 35px;
+  }
+  @media (max-width: 850px) {
+    font-size: 25px;
+  }
 `;
