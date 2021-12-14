@@ -6,9 +6,10 @@ import { MdAdd } from "react-icons/md";
 import { IoMdRemoveCircle } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import FlipDiceIcon from "../Assets/Images/favicon.png";
-import Modal from "react-modal";
+// import Modal from "react-modal";
 import ChosenModal from "../Components/ChosenModal";
 import { MdCancel } from "react-icons/md";
+import { Modal } from "rsuite";
 
 const initialChoices = [];
 
@@ -161,27 +162,9 @@ const RandomlyChoosing = () => {
           <ChooseText>Choose</ChooseText>
         </ChooseButton>
       </ChooseButtonWrapper>
-      <Modal
-        isOpen={chosenModal}
-        onRequestClose={handleChosenModal}
-        style={{
-          overlay: {
-            backgroundColor: Theme.colors.gray,
-          },
-          content: {
-            top: "120px",
-            left: "520px",
-            right: "520px",
-            bottom: "120px",
-            border: "0px",
-            background: Theme.colors.background,
-            borderRadius: "14px",
-            padding: "0px",
-          },
-        }}
-      >
+      <Modal show={chosenModal} onHide={() => setChosenModal(!chosenModal)}>
         <ChosenModal
-          onCloseIcon={handleChosenModal}
+          onCloseIcon={() => setChosenModal(!chosenModal)}
           chosenId={chosenId}
           choices={choices}
         />

@@ -53,16 +53,25 @@ const CloseIcon = styled(BsXLg)`
   align-self: flex-end;
   margin: 25px 25px 0px;
   cursor: pointer;
+  @media (max-width: 500px) {
+    width: 25px;
+  }
 `;
 
 const Success = styled.img`
   width: 200px;
+  @media (max-width: 500px) {
+    width: 150px;
+  }
 `;
 
 const ChosenTitle = styled(CustomText)`
   font-size: 60px;
   color: ${Theme.colors.yellow};
   text-align: center;
+  @media (max-width: 500px) {
+    font-size: 45px;
+  }
 `;
 
 const ThankYou = styled.div`
@@ -79,12 +88,19 @@ const ThankYou = styled.div`
   }
   color: white;
   cursor: pointer;
+  @media (max-width: 500px) {
+    width: 180px;
+    height: 50px;
+  }
 `;
 
 const ThankYouText = styled(CustomText)`
   font-size: 35px;
   color: ${(props) =>
-    props.hovered ? Theme.colors.white : Theme.colors.black}; ;
+    props.hovered ? Theme.colors.white : Theme.colors.black};
+  @media (max-width: 500px) {
+    font-size: 25px;
+  }
 `;
 
 const NothingToChoose = styled(CustomText)`
