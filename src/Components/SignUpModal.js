@@ -26,9 +26,7 @@ const SignUpModal = ({ onCloseIcon }) => {
   return (
     <SignUpForm>
       <SignUpWrapper>
-        {/* {window.innerWidth < 950 && ( */}
         <CloseIcon size={25} color={Theme.colors.black} onClick={onCloseIcon} />
-        {/* )} */}
         <CreateYourAccount>Create your account</CreateYourAccount>
         <AlreadyHaveAccount>
           Already have an account? <LoginText>Log in</LoginText>
@@ -63,13 +61,6 @@ const SignUpModal = ({ onCloseIcon }) => {
       </SignUpWrapper>
       {window.innerWidth <= 1350 && window.innerWidth > 950 && <Divider />}
       <OrWrapper>
-        {/* {window.innerWidth <= 1350 && window.innerWidth > 950 && (
-          <CloseIcon
-            size={30}
-            color={Theme.colors.black}
-            onClick={onCloseIcon}
-          />
-        )} */}
         <OrContainer>
           <Line left />
           or
@@ -106,7 +97,6 @@ export default SignUpModal;
 
 const SignUpForm = styled.div`
   width: 100%;
-  /* height: 100%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,14 +216,12 @@ const Row = styled.div`
 `;
 
 const ByRegistering = styled(CustomText)`
-  /* display: flex; */
   font-size: 13px;
   margin-top: 15px;
   font-family: ${Fonts.third};
   @media (max-width: 600px) {
     width: 70%;
   }
-  /* flex-direction: column; */
 `;
 
 const NeonText = styled(ByRegistering)`

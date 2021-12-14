@@ -7,10 +7,6 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "rsuite/dist/styles/rsuite-default.css";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "rsuite/dist/styles/rsuite-default.css";
-// import "rsuite/lib/styles/index.less";
-
 const GlobalStyle = createGlobalStyle`
   body, h1, p{
     padding: 0;

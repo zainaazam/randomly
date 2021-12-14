@@ -7,11 +7,7 @@ import Theme from "../Containers/Theme/colors";
 import LoginModal from "./LoginModal";
 import avatar from "../Assets/Images/avatar.png";
 import { useHistory } from "react-router-dom";
-import Fonts from "../Theme/Fonts";
 import { Modal } from "rsuite";
-
-// import { useCookies } from "react-cookie";
-// import Menu from "./Menu";
 
 const Header = ({ rememberMe, setRememberMe }) => {
   const [hovered, setHovered] = useState(false);
@@ -39,17 +35,9 @@ const Header = ({ rememberMe, setRememberMe }) => {
 
   const handleLogOut = () => {
     setLoggedIn(false);
-    // let loggedOut = false;
-    // const isLoggedOut = JSON.stringify(loggedOut);
-    // localStorage.setItem("isLoggedIn", isLoggedOut);
     history.push("/welcome");
-    // console.log(isLoggedOut);
   };
 
-  // const dispatch = useDispatch();
-  // const {loggedIn} = useSelector<RootState>(
-  //   state => state.Configs,
-  // ) as ConfigsReducer;
   return (
     <HeaderWrapper>
       <HeaderLogoWrapper>
@@ -93,20 +81,10 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  /* position: relative; */
-  /* width: 100%; */
   @media (max-width: 500px) {
     padding: 0px 10px 0px 0px;
   }
-  /* @media (max-width: 700px) {
-    justify-content: space-evenly;
-  }
-  @media (max-width: 580px) {
-    justify-content: space-around;
-  } */
 `;
-
-// export const LoginModalStructure = styled(Modal)``;
 
 export const HeaderNavOption = styled(Link)`
   cursor: pointer;
@@ -146,20 +124,6 @@ export const HeaderLogoWrapper = styled.div`
   @media (max-width: 370px) {
     width: 45%;
   }
-
-  /* @media (max-width: 1100px) {
-    width: 15%;
-  }
-  @media (max-width: 700px) {
-    width: 20%;
-  }
-  @media (max-width: 580px) {
-    width: 25%;
-    margin-right: 15px;
-  }
-  @media (max-width: 380px) {
-    width: 30%;
-  } */
 `;
 
 export const Login = styled.button`
@@ -174,7 +138,6 @@ export const Login = styled.button`
   justify-content: center;
   :hover {
     background-color: ${Theme.colors.primary};
-    /* color: white; */
   }
   @media (max-width: 1150px) {
     width: 115px;
@@ -192,11 +155,6 @@ export const Login = styled.button`
     width: 80px;
     height: 30px;
   }
-  /* padding: 0.7% 0px;
-  font-size: 25px;
-  font-weight: 600;
-  font-family: ${Fonts.regular};
-  color: ${Theme.colors.primary}; */
 `;
 
 export const LoginText = styled(CustomText)`

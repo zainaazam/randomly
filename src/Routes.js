@@ -14,10 +14,6 @@ import Footer from "./Components/Footer";
 import MainPage from "./Containers/MainPage";
 import RandomlyChoosing from "./Containers/RandomlyChoosing";
 
-// export interface RoutesProps {
-//   rememberMe: boolean;
-//   setRememberMe: React.Dispatch<React.SetStateAction<boolean>>;
-// }
 const Routes = ({ rememberMe, setRememberMe }) => {
   return (
     <Router basename="/">
@@ -37,15 +33,6 @@ const Routes = ({ rememberMe, setRememberMe }) => {
             <RandomlyChoosing />
             <PageTitle title="Randomly Choosing" />
           </Route>
-          {/* <Route path="/" exact>
-            <MainPage />
-            <PageTitle title="الرئيسية" />
-          </Route>
-          <Route path="/login" exact>
-            <Login rememberMe={rememberMe} setRememberMe={setRememberMe} />
-
-            <PageTitle title="تسجيل الدخول" />
-          </Route> */}
           <Route path="/*" exact>
             <Redirect to="/" />
           </Route>

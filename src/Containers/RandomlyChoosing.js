@@ -6,7 +6,6 @@ import { MdAdd } from "react-icons/md";
 import { IoMdRemoveCircle } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import FlipDiceIcon from "../Assets/Images/favicon.png";
-// import Modal from "react-modal";
 import ChosenModal from "../Components/ChosenModal";
 import { MdCancel } from "react-icons/md";
 import { Modal } from "rsuite";
@@ -305,9 +304,6 @@ const ListItem = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 15px;
-  /* :hover {
-    background-color: ${Theme.colors.blue};
-  } */
   @media (max-width: 950px) {
     height: 45px;
     width: 380px;

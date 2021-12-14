@@ -4,11 +4,8 @@ import zombieingImage from "../Assets/Images/zombieing.png";
 import { CustomText } from "../Components/Common";
 import Fonts from "../Theme/Fonts";
 import Theme from "./Theme/colors";
-// import Modal from "react-modal";
 import SignUpModal from "../Components/SignUpModal";
 import { Modal } from "rsuite";
-
-// Modal.setAppElement("#root");
 
 const WelcomePage = () => {
   const [hovered, setHovered] = useState(false);
@@ -60,8 +57,6 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 50px;
-  /* height: calc(100vh - 155.5px); */
-  /* width: 80%; */
   @media (max-width: 600px) {
     flex-direction: column-reverse;
     margin: auto;
