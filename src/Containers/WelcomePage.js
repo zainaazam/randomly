@@ -99,7 +99,7 @@ const Welcoming = styled.div`
 `;
 
 const WelcomingText = styled(CustomText)`
-  width: 50%;
+  width: 60%;
 
   @media (max-width: 1300px) {
     font-size: 30px;
@@ -118,7 +118,7 @@ const WelcomingText = styled(CustomText)`
 `;
 
 const RightPlaceText = styled(CustomText)`
-  width: 50%;
+  width: 60%;
 
   @media (max-width: 1300px) {
     font-size: 30px;

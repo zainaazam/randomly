@@ -111,6 +111,7 @@ const FooterLinks = styled.div`
 
 const FooterLinkText = styled(CustomText)`
   cursor: pointer;
+  margin-top: 0px;
   :hover {
     text-decoration: underline;
   }

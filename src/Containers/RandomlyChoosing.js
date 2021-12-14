@@ -245,6 +245,7 @@ const InputWrapper = styled.div`
 `;
 
 const Input = styled.input`
+  width: 350px;
   height: 60px;
   font-size: 35px;
   border: 1px solid ${Theme.colors.primary};
