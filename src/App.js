@@ -5,10 +5,7 @@ import Routes from "./Routes";
 import { useCookies } from "react-cookie";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "rsuite/dist/styles/rsuite-default.css";
-// import "rsuite/lib/styles/index.less";
+import "rsuite/dist/styles/rsuite-default.css";
 
 const GlobalStyle = createGlobalStyle`
   body, h1, p{

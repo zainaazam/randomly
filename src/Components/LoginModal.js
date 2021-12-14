@@ -40,8 +40,15 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
     onCloseIcon();
   };
   return (
-    <>
+    <Container>
       <LoginForm>
+        {window.innerWidth <= 950 && (
+          <CloseIcon
+            size={30}
+            color={Theme.colors.black}
+            onClick={onCloseIcon}
+          />
+        )}
         <LoginToYourAccount>Login to your account</LoginToYourAccount>
         <InputWrapper>
           <Label>Email address</Label>
@@ -55,7 +62,6 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
           <CheckBoxWrapper>
             <CheckBox
               // onChange={() => setRememberMe(!rememberMe)}
-              type={"checkbox"}
               id={"rememberMe"}
               checked={checked}
               onClick={() => {
@@ -95,7 +101,13 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
         </SocialMedia>
       </LoginForm>
       <SignUpAttractor>
-        <CloseIcon size={30} color={Theme.colors.white} onClick={onCloseIcon} />
+        {window.innerWidth > 950 && (
+          <CloseIcon
+            size={30}
+            color={Theme.colors.white}
+            onClick={onCloseIcon}
+          />
+        )}
         <Wrapper>
           <DontHaveAccount>Don't have an account?</DontHaveAccount>
           <AttractText>
@@ -106,11 +118,19 @@ const LoginModal = ({ onCloseIcon, rememberMe, setRememberMe }) => {
 
         <ByMeText>Randomly By Zaina Azam</ByMeText>
       </SignUpAttractor>
-    </>
+    </Container>
   );
 };
 
 export default LoginModal;
+
+const Container = styled.div`
+  display: flex;
+  height: 100%;
+  @media (max-width: 950px) {
+    flex-direction: column;
+  }
+`;
 
 const LoginForm = styled.div`
   width: 55%;
@@ -119,6 +139,9 @@ const LoginForm = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media (max-width: 950px) {
+    width: 100%;
+  }
 `;
 
 const SignUpAttractor = styled.div`
@@ -129,11 +152,28 @@ const SignUpAttractor = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  @media (max-width: 950px) {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 0px 0px 20px 20px;
+    padding-top: 8%;
+  }
 `;
 
 const LoginToYourAccount = styled(CustomText)`
   font-size: 35px;
   font-family: ${Fonts.third};
+  @media (max-width: 1100px) {
+    font-size: 30px;
+  }
+  @media (max-width: 500px) {
+    font-size: 22px;
+  }
+  @media (max-width: 380px) {
+    font-size: 16px;
+  }
 `;
 
 const InputWrapper = styled.div`
@@ -142,6 +182,9 @@ const InputWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  @media (max-width: 950px) {
+    margin-top: 20px;
+  }
 `;
 
 const Input = styled(CustomInput)``;
@@ -154,6 +197,9 @@ const Label = styled.label`
 const CheckBoxLabel = styled(Label)`
   align-self: center;
   margin-left: 8px;
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 `;
 
 const CheckBox = styled.div`
@@ -166,6 +212,10 @@ const CheckBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 600px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const ChWrapper = styled.div`
@@ -174,6 +224,10 @@ const ChWrapper = styled.div`
   align-items: center;
   margin-top: 15px;
   justify-content: space-between;
+  @media (max-width: 450px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const CheckBoxWrapper = styled.div`
@@ -192,6 +246,13 @@ const ForgotPasswordText = styled(CustomText)`
   text-decoration: underline;
   :hover {
     color: ${Theme.colors.black};
+  }
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
+  @media (max-width: 450px) {
+    margin-top: 8px;
+    align-self: center;
   }
 `;
 
@@ -213,6 +274,9 @@ export const ModalButton = styled.button`
       #1a6f8b
     );
   }
+  @media (max-width: 1100px) {
+    font-size: 15px;
+  }
 `;
 
 export const OrContainer = styled.div`
@@ -222,6 +286,9 @@ export const OrContainer = styled.div`
   width: 79%;
   font-size: 19px;
   margin-top: 35px;
+  @media (max-width: 1250px) {
+    margin-top: 15px;
+  }
 `;
 
 export const Line = styled.div`
@@ -237,6 +304,14 @@ export const SocialMedia = styled.div`
   width: 80%;
   justify-content: space-between;
   margin-top: 20px;
+  @media (max-width: 1250px) {
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+  }
+  @media (max-width: 950px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const WithGoogle = styled.div`
@@ -245,7 +320,7 @@ export const WithGoogle = styled.div`
   height: 40px;
   border: 1px solid ${Theme.colors.orange};
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -254,6 +329,15 @@ export const WithGoogle = styled.div`
   background-color: ${(props) =>
     props.GHovered ? Theme.colors.orange : Theme.colors.transparent};
   transition: all 0.5s;
+  @media (max-width: 1300px) {
+    font-size: 12px;
+  }
+  @media (max-width: 1250px) {
+    width: 80%;
+  }
+  @media (max-width: 380px) {
+    width: 100%;
+  }
 `;
 export const WithFacebook = styled.div`
   cursor: pointer;
@@ -261,7 +345,7 @@ export const WithFacebook = styled.div`
   height: 40px;
   border: 1px solid ${Theme.colors.lightBlue2};
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -270,6 +354,16 @@ export const WithFacebook = styled.div`
   background-color: ${(props) =>
     props.FHovered ? Theme.colors.lightBlue2 : Theme.colors.transparent};
   transition: all 0.5s;
+  @media (max-width: 1300px) {
+    font-size: 12px;
+  }
+  @media (max-width: 1250px) {
+    width: 80%;
+    margin-top: 10px;
+  }
+  @media (max-width: 380px) {
+    width: 100%;
+  }
 `;
 
 export const GoogleIcon = styled(FaGoogle)``;
@@ -280,6 +374,9 @@ export const CloseIcon = styled(BsXLg)`
   align-self: flex-end;
   margin: 15px;
   cursor: pointer;
+  @media (max-width: 1100px) {
+    width: 20px;
+  }
 `;
 
 const DontHaveAccount = styled(CustomText)`
@@ -289,6 +386,13 @@ const DontHaveAccount = styled(CustomText)`
   text-align: center;
   color: ${Theme.colors.white};
   font-weight: 600;
+  @media (max-width: 1100px) {
+    font-size: 25px;
+  }
+  @media (max-width: 380px) {
+    font-size: 20px;
+    width: 150px;
+  }
 `;
 
 const AttractText = styled(CustomText)`
@@ -298,6 +402,14 @@ const AttractText = styled(CustomText)`
   font-size: 19px;
   width: 370px;
   margin-top: 28px;
+  @media (max-width: 1100px) {
+    font-size: 15px;
+    width: 200px;
+  }
+  @media (max-width: 380px) {
+    font-size: 13px;
+    width: 180px;
+  }
 `;
 
 const SignUpButton = styled.button`
@@ -316,6 +428,13 @@ const SignUpButton = styled.button`
     color: ${Theme.colors.lightBlue2};
   }
   transition: all 0.5s;
+  @media (max-width: 1100px) {
+    width: 72%;
+    font-size: 15px;
+  }
+  @media (max-width: 950px) {
+    margin-top: 20px;
+  }
 `;
 
 const ByMeText = styled(CustomText)`
@@ -325,6 +444,13 @@ const ByMeText = styled(CustomText)`
   width: 150px;
   align-self: flex-end;
   margin: 15px 0px;
+  @media (max-width: 1100px) {
+    font-size: 24px;
+  }
+  @media (max-width: 600px) {
+    font-size: 19px;
+    width: 120px;
+  }
 `;
 
 const Wrapper = styled.div`

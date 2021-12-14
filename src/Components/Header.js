@@ -4,15 +4,10 @@ import styled from "styled-components";
 import Logo from "../Assets/Images/logo.png";
 import { CustomText } from "./Common";
 import Theme from "../Containers/Theme/colors";
-import Modal from "react-modal";
-import { Row } from "react-bootstrap";
 import LoginModal from "./LoginModal";
 import avatar from "../Assets/Images/avatar.png";
 import { useHistory } from "react-router-dom";
-import Fonts from "../Theme/Fonts";
-
-// import { useCookies } from "react-cookie";
-// import Menu from "./Menu";
+import { Modal } from "rsuite";
 
 const Header = ({ rememberMe, setRememberMe }) => {
   const [hovered, setHovered] = useState(false);
@@ -40,17 +35,9 @@ const Header = ({ rememberMe, setRememberMe }) => {
 
   const handleLogOut = () => {
     setLoggedIn(false);
-    // let loggedOut = false;
-    // const isLoggedOut = JSON.stringify(loggedOut);
-    // localStorage.setItem("isLoggedIn", isLoggedOut);
     history.push("/welcome");
-    // console.log(isLoggedOut);
   };
 
-  // const dispatch = useDispatch();
-  // const {loggedIn} = useSelector<RootState>(
-  //   state => state.Configs,
-  // ) as ConfigsReducer;
   return (
     <HeaderWrapper>
       <HeaderLogoWrapper>
@@ -74,28 +61,7 @@ const Header = ({ rememberMe, setRememberMe }) => {
           </LoginText>
         </Login>
       )}
-      <Modal
-        isOpen={loginModal}
-        onRequestClose={handleLoginModal}
-        style={{
-          overlay: {
-            backgroundColor: Theme.colors.gray,
-          },
-          content: {
-            top: "80px",
-            left: "250px",
-            right: "250px",
-            bottom: "80px",
-            border: "0px",
-            background: Theme.colors.background,
-            borderRadius: "14px",
-            outline: "none",
-            padding: "0px",
-            display: "flex",
-            flexDirection: Row,
-          },
-        }}
-      >
+      <Modal show={loginModal} onHide={handleLoginModal}>
         <LoginModal
           onCloseIcon={handleLoginModal}
           rememberMe={rememberMe}
@@ -115,17 +81,9 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  /* position: relative; */
-  /* width: 100%; */
-  /* @media (max-width: 980px) {
-    justify-content: space-around;
+  @media (max-width: 500px) {
+    padding: 0px 10px 0px 0px;
   }
-  @media (max-width: 700px) {
-    justify-content: space-evenly;
-  }
-  @media (max-width: 580px) {
-    justify-content: space-around;
-  } */
 `;
 
 export const HeaderNavOption = styled(Link)`
@@ -145,26 +103,27 @@ export const HeaderLogo = styled.img`
   width: 90%;
   margin: 0px 60px;
   @media (max-width: 768px) {
-    margin: 0%;
+    width: 100%;
+  }
+  @media (max-width: 500px) {
+    margin-left: 10px;
   }
 `;
 
 export const HeaderLogoWrapper = styled.div`
   width: 22%;
 
-  /* @media (max-width: 1100px) {
-    width: 15%;
-  }
-  @media (max-width: 700px) {
-    width: 20%;
-  }
-  @media (max-width: 580px) {
-    width: 25%;
-    margin-right: 15px;
-  }
-  @media (max-width: 380px) {
+  @media (max-width: 768px) {
     width: 30%;
-  } */
+  }
+
+  @media (max-width: 500px) {
+    width: 40%;
+  }
+
+  @media (max-width: 370px) {
+    width: 45%;
+  }
 `;
 
 export const Login = styled.button`
@@ -179,13 +138,23 @@ export const Login = styled.button`
   justify-content: center;
   :hover {
     background-color: ${Theme.colors.primary};
-    /* color: white; */
   }
-  /* padding: 0.7% 0px;
-  font-size: 25px;
-  font-weight: 600;
-  font-family: ${Fonts.regular};
-  color: ${Theme.colors.primary}; */
+  @media (max-width: 1150px) {
+    width: 115px;
+    height: 48px;
+  }
+  @media (max-width: 1000px) {
+    width: 100px;
+    height: 40px;
+  }
+  @media (max-width: 600px) {
+    width: 90px;
+    height: 35px;
+  }
+  @media (max-width: 400px) {
+    width: 80px;
+    height: 30px;
+  }
 `;
 
 export const LoginText = styled(CustomText)`
@@ -193,12 +162,31 @@ export const LoginText = styled(CustomText)`
   transition: all 0.5s ease-in-out;
   color: ${(props) =>
     props.hovered ? Theme.colors.white : Theme.colors.primary};
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 18px;
+  }
 `;
 
 const Avatar = styled.img`
   width: 35px;
   height: 40px;
   margin-bottom: 7px;
+  @media (max-width: 1100px) {
+    width: 30px;
+    height: 35px;
+  }
+  @media (max-width: 900px) {
+    width: 25px;
+    height: 30px;
+  }
+  @media (max-width: 400px) {
+    width: 20px;
+    height: 25px;
+  }
 `;
 
 const LogOut = styled.div`
@@ -206,9 +194,27 @@ const LogOut = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 1100px) {
+    width: 120px;
+  }
+  @media (max-width: 900px) {
+    width: 90px;
+  }
+  @media (max-width: 400px) {
+    width: 73px;
+  }
 `;
 
 const LogOutText = styled(CustomText)`
   font-size: 30px;
   cursor: pointer;
+  @media (max-width: 1100px) {
+    font-size: 25px;
+  }
+  @media (max-width: 900px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 16px;
+  }
 `;
