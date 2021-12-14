@@ -5,6 +5,7 @@ import Routes from "./Routes";
 import { useCookies } from "react-cookie";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import "rsuite/dist/styles/rsuite-default.css";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "rsuite/dist/styles/rsuite-default.css";

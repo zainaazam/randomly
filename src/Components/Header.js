@@ -4,12 +4,11 @@ import styled from "styled-components";
 import Logo from "../Assets/Images/logo.png";
 import { CustomText } from "./Common";
 import Theme from "../Containers/Theme/colors";
-import Modal from "react-modal";
-import { Row } from "react-bootstrap";
 import LoginModal from "./LoginModal";
 import avatar from "../Assets/Images/avatar.png";
 import { useHistory } from "react-router-dom";
 import Fonts from "../Theme/Fonts";
+import { Modal } from "rsuite";
 
 // import { useCookies } from "react-cookie";
 // import Menu from "./Menu";
@@ -74,28 +73,7 @@ const Header = ({ rememberMe, setRememberMe }) => {
           </LoginText>
         </Login>
       )}
-      <Modal
-        isOpen={loginModal}
-        onRequestClose={handleLoginModal}
-        style={{
-          overlay: {
-            backgroundColor: Theme.colors.gray,
-          },
-          content: {
-            top: "80px",
-            left: "250px",
-            right: "250px",
-            bottom: "80px",
-            border: "0px",
-            background: Theme.colors.background,
-            borderRadius: "14px",
-            outline: "none",
-            padding: "0px",
-            display: "flex",
-            flexDirection: Row,
-          },
-        }}
-      >
+      <Modal show={loginModal} onHide={handleLoginModal}>
         <LoginModal
           onCloseIcon={handleLoginModal}
           rememberMe={rememberMe}
@@ -127,6 +105,8 @@ export const HeaderWrapper = styled.div`
     justify-content: space-around;
   } */
 `;
+
+// export const LoginModalStructure = styled(Modal)``;
 
 export const HeaderNavOption = styled(Link)`
   cursor: pointer;

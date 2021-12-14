@@ -4,16 +4,17 @@ import zombieingImage from "../Assets/Images/zombieing.png";
 import { CustomText } from "../Components/Common";
 import Fonts from "../Theme/Fonts";
 import Theme from "./Theme/colors";
-import Modal from "react-modal";
+// import Modal from "react-modal";
 import SignUpModal from "../Components/SignUpModal";
+import { Modal } from "rsuite";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 const WelcomePage = () => {
   const [hovered, setHovered] = useState(false);
-  const [loginModal, setLoginModal] = useState(false);
-  const handleLoginModal = () => {
-    setLoginModal(!loginModal);
+  const [signUpModal, setSignUpModal] = useState(false);
+  const handleSignUpModal = () => {
+    setSignUpModal(!signUpModal);
   };
 
   return (
@@ -34,7 +35,7 @@ const WelcomePage = () => {
         <Register
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onClick={() => handleLoginModal()}
+          onClick={() => handleSignUpModal()}
         >
           <RegisterText color={Theme.colors.white} hovered={hovered}>
             Register With Us!
@@ -44,26 +45,8 @@ const WelcomePage = () => {
       <ImageContainer>
         <ZombieingImage src={zombieingImage} />
       </ImageContainer>
-      <Modal
-        isOpen={loginModal}
-        onRequestClose={handleLoginModal}
-        style={{
-          overlay: {
-            backgroundColor: Theme.colors.gray,
-          },
-          content: {
-            top: "60px",
-            left: "480px",
-            right: "480px",
-            bottom: "60px",
-            border: "0px",
-            background: Theme.colors.background,
-            borderRadius: "14px",
-            padding: "0px",
-          },
-        }}
-      >
-        <SignUpModal onCloseIcon={handleLoginModal} />
+      <Modal show={signUpModal} onHide={handleSignUpModal}>
+        <SignUpModal onCloseIcon={handleSignUpModal} />
       </Modal>
     </Container>
   );
