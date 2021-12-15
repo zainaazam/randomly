@@ -12,6 +12,25 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin:0;
   }
+  body {
+    background-color: #f8f3ed;
+  }
+  .rs-modal-sm {
+    width: 70%;
+    height: 85%;
+    @media (max-width: 950px) {
+        height: 155%;
+        margin-bottom: 140px;
+    }
+  }
+  .rs-modal-dialog {
+    height: 100%;
+  }
+  .rs-modal-content {
+    padding: 0;
+    height: 100%;
+    border-radius: 20px;
+  }
 `;
 
 function App() {
