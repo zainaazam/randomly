@@ -59,7 +59,7 @@ const SignUpModal = ({ onCloseIcon }) => {
           Create My Account
         </ModalButton>
       </SignUpWrapper>
-      {window.innerWidth <= 1350 && window.innerWidth > 950 && <Divider />}
+      {window.innerWidth <= 1250 && window.innerWidth > 950 && <Divider />}
       <OrWrapper>
         <OrContainer>
           <Line left />
@@ -101,7 +101,7 @@ const SignUpForm = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  @media (max-width: 1350px) {
+  @media (max-width: 1250px) {
     flex-direction: row;
   }
   @media (max-width: 950px) {
@@ -122,7 +122,7 @@ const OrWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-width: 1350px) {
+  @media (max-width: 1250px) {
     width: 50%;
     height: 490px;
     justify-content: space-evenly;
@@ -259,7 +259,7 @@ export const SocialMedia = styled.div`
   justify-content: space-between;
   margin-top: 20px;
 
-  @media (max-width: 1350px) {
+  @media (max-width: 1250px) {
     flex-direction: column;
     margin-top: 10px;
     align-items: center;
@@ -284,7 +284,7 @@ export const WithGoogle = styled.div`
   background-color: ${(props) =>
     props.GHovered ? Theme.colors.orange : Theme.colors.transparent};
   transition: all 0.5s;
-  @media (max-width: 1350px) {
+  @media (max-width: 1250px) {
     width: 100%;
   }
   @media (max-width: 1300px) {
@@ -306,7 +306,7 @@ export const WithFacebook = styled.div`
   background-color: ${(props) =>
     props.FHovered ? Theme.colors.lightBlue2 : Theme.colors.transparent};
   transition: all 0.5s;
-  @media (max-width: 1350px) {
+  @media (max-width: 1250px) {
     width: 100%;
     margin-top: 10px;
   }
