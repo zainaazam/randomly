@@ -7,7 +7,6 @@ import { CustomText } from "./Common";
 
 const ChosenModal = ({ onCloseIcon, chosenId, choices }) => {
   const [hovered, setHovered] = useState(false);
-
   return (
     <Container>
       <CloseIcon size={30} color={Theme.colors.black} onClick={onCloseIcon} />
