@@ -87,6 +87,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const TheModal = styled(Modal)`
+  width: 80%;
   @media (max-width: 950px) {
     height: 800px;
     width: 90%;
