@@ -72,7 +72,6 @@ const Container = styled.div`
   justify-content: space-between;
   padding-bottom: 50px;
   height: calc(100vh - 100px);
-
   @media (max-width: 600px) {
     flex-direction: column-reverse;
     margin: auto;

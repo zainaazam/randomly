@@ -67,7 +67,7 @@ export default Footer;
 
 const FooterWrapper = styled.div`
   width: 100%;
-  height: 400px;
+  height: 350px;
   background-color: rgba(19, 100, 127, 0.83);
   display: flex;
   flex-direction: column;
