@@ -11,6 +11,7 @@ import { MdCancel } from "react-icons/md";
 import { Loader, Modal } from "rsuite";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { TheModal } from "../Components/Header";
 
 const initialChoices = [];
 
@@ -298,11 +299,12 @@ const RandomlyChoosing = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "100%",
+                width: window.innerWidth > 850 ? "100%" : "30%",
                 height: "50%",
+                paddingBottom: window.innerWidth > 850 ? "0" : "20px",
               }}
             >
-              <Loader size="lg" />
+              <Loader size={window.innerWidth > 850 ? "lg" : "md"} />
             </div>
           ) : (
             <FlipDice src={FlipDiceIcon} />
@@ -310,13 +312,16 @@ const RandomlyChoosing = () => {
           <ChooseText>Choose</ChooseText>
         </ChooseButton>
       </ChooseButtonWrapper>
-      <Modal show={chosenModal} onHide={() => setChosenModal(!chosenModal)}>
+      <ChooseModal
+        show={chosenModal}
+        onHide={() => setChosenModal(!chosenModal)}
+      >
         <ChosenModal
           onCloseIcon={() => setChosenModal(!chosenModal)}
           chosenId={chosenId}
           choices={choices}
         />
-      </Modal>
+      </ChooseModal>
     </Container>
   );
 };
@@ -328,6 +333,13 @@ const Container = styled.div`
   display: flex;
   @media (max-width: 850px) {
     flex-direction: column;
+  }
+`;
+
+export const ChooseModal = styled(Modal)`
+  @media (max-width: 950px) {
+    height: 500px;
+    width: 90%;
   }
 `;
 

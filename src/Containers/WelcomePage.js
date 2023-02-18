@@ -5,7 +5,7 @@ import { CustomText } from "../Components/Common";
 import Fonts from "../Theme/Fonts";
 import Theme from "./Theme/colors";
 import SignUpModal from "../Components/SignUpModal";
-import { Modal } from "rsuite";
+import { TheModal } from "../Components/Header";
 
 const WelcomePage = () => {
   const [hovered, setHovered] = useState(false);
@@ -56,9 +56,9 @@ const WelcomePage = () => {
       <ImageContainer>
         <ZombieingImage src={zombieingImage} />
       </ImageContainer>
-      <Modal show={signUpModal} onHide={handleSignUpModal} overflow={true}>
+      <TheModal show={signUpModal} onHide={handleSignUpModal} overflow={true}>
         <SignUpModal onCloseIcon={handleSignUpModal} />
-      </Modal>
+      </TheModal>
     </Container>
   );
 };

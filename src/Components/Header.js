@@ -61,13 +61,13 @@ const Header = ({ rememberMe, setRememberMe }) => {
           </LoginText>
         </Login>
       )}
-      <Modal show={loginModal} onHide={handleLoginModal}>
+      <TheModal show={loginModal} onHide={handleLoginModal}>
         <LoginModal
           onCloseIcon={handleLoginModal}
           rememberMe={rememberMe}
           setRememberMe={setRememberMe}
         />
-      </Modal>
+      </TheModal>
     </HeaderWrapper>
   );
 };
@@ -83,6 +83,13 @@ export const HeaderWrapper = styled.div`
   z-index: 999;
   @media (max-width: 500px) {
     padding: 0px 10px 0px 0px;
+  }
+`;
+
+export const TheModal = styled(Modal)`
+  @media (max-width: 950px) {
+    height: 800px;
+    width: 90%;
   }
 `;
 

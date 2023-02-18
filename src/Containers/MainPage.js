@@ -42,7 +42,9 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   padding: 40px 0px 150px;
-  height: calc(100vh - 100px);
+  @media (min-width: 950px) {
+    height: calc(100vh - 100px);
+  }
   @media (max-width: 800px) {
     flex-wrap: wrap;
     width: 60%;
