@@ -23,6 +23,7 @@ const SignUpModal = ({ onCloseIcon }) => {
 
   const handleSignUp = (values) => {
     console.log("sign up", values);
+    setLoading(true);
     fetch("https://randomly-backend.vercel.app/auth/signup", {
       method: "PUT",
       headers: {
@@ -35,16 +36,17 @@ const SignUpModal = ({ onCloseIcon }) => {
       .then((data) => {
         console.log(data);
         setLoading(false);
-        if (data.token !== undefined || data.token !== null) {
+        if (data.token !== undefined) {
           // let loggedIn = true;
           // const isLoggedIn = JSON.stringify(loggedIn);
           // localStorage.setItem("isLoggedIn", isLoggedIn);
           // localStorage.setItem("token", data.token);
           // localStorage.setItem("userId", data.userId);
-          dispatch(signUp(data));
           history.push("/main");
-          history.go(0);
+          dispatch(signUp(data));
+          // history.go(0);
           onCloseIcon();
+          setLoading(false);
         }
       })
       .catch((error) => {
